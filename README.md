@@ -24,9 +24,11 @@ This site is an DEMONSTRATION site and all the products there are not real inclu
 6. Other products will be included.<br>
 7. Pictures of products will be uploaded on the website.<br>
 8. Trending outfits and recent searches to be added to the search input. <br>
+9. Dark-mode <br> 
 <h3>⛓️‍💥ACCESSIBILITY</h3><br>
 [https://uglyboy77.github.io/Trenzyy/] <br>
 Click on the above link to view the site. Don't forget to give a feedback!
+
 
 
 
