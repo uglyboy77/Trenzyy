@@ -133,7 +133,7 @@ header {
   color: white;
   padding: 20px;
   box-sizing: border-box;
-  z-index: 999;         
+  z-index: 1000;         
   overflow-y: auto;      
 }
 .dropdownmenu.show {
@@ -141,7 +141,6 @@ header {
 }
 
 .menu {
-  z-index:1000;
   height: 3px;
   width: 30px;
   margin: 3px;
@@ -153,6 +152,8 @@ header {
 .menus {
   display: inline-block;
   cursor: pointer;
+  position relative ;
+  z-index:1100;
 }
 
 .menus.active .menu:nth-child(1) {
