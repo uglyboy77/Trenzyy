@@ -9,10 +9,13 @@ Prog.lang: HTML,CSS & JS only. <br>
 About Site: A clothing site <br>
 NOTE <br>
 This site is an DEMONSTRATION site and all the products there are not real including the prices,support mail,socials & name. <br>
-<h3>⛓️‍💥FEATURES</h3>
+<h3>⛓️‍💥FEATURES</h3> <br>
 •Responsive Design for all screens <br>
 •User friendly search input <br>
 •Dynamic Menu <br>
 •Animated Loading screen etc 
 <br>
-<h3>⛓️‍💥ACCESSIBILITY</h3>
+<h3>⛓️‍💥ACCESSIBILITY</h3><br>
+[https://uglyboy77.github.io/Trenzyy/] <br>
+Click on the above link to view the site. Don't forget to give a feedback!
+
