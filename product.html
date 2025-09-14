@@ -19,7 +19,20 @@
         </div>
 
     </div>
-    
+    <div class="product-container">
+        <div class="product-details">
+            <img id="product-details-image" alt="Product Image">
+            <h2 id="product-details-name"></h2>
+            <p id="product-details-price"></p>
+            <p id="product-details-description"></p>
+            <p id="product-size-display"></p>
+            <h3>Select Size:</h3>
+            <div class="size-container">
+                <table class="size-table"></table>
+                <button class="product-heart-button" aria-label="like">
+            </div>
+
+        </div>
         <div class="plusMinusbtn">
             <button class="minus" onclick="add(-1)">-</button>
             <span class="quantity">1</span>
@@ -41,7 +54,6 @@
     <div class="footer">
         <p>&copy; 2024/25 created by Baffour Brenya Agyenim Boateng. All rights reserved.</p>
         <script>
-
             const products = {
                 1: {
                     image: "IMG-20250806-WA0070.jpg",
