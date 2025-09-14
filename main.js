@@ -1,7 +1,3 @@
-document.addEventListener('click', (e) => {
-  e.preventDefault();
-  alert('Webpage is under construction. Please check back later!');
-});
 
 function toggleTheme() {
   const body = document.body;
@@ -284,4 +280,5 @@ setTimeout(() => {
     main.style.zIndex = '1000';
   }
 }, 2000);
+
 
