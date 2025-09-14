@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Product Details</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="product-header">
+        <div class="product-header-image">
+            <a href="index.html" class="back-button">Back to Products</a>
+            <img src="1318035.jpg" alt="Product Image">
+            <h1 id="product-header-name"></h1>
+        </div>
+
+    </div>
+    <div class="product-container">
+        <div class="product-details">
+            <img id="product-details-image" alt="Product Image">
+            <h2 id="product-details-name"></h2>
+            <p id="product-details-price"></p>
+            <p id="product-details-description"></p>
+            <p id="product-size-display"></p>
+            <h3>Select Size:</h3>
+            <div class="size-container">
+                <table class="size-table"></table>
+            </div>
+        </div>
+        <div class="plusMinusbtn">
+            <button class="minus" onclick="add(-1)">-</button>
+            <span class="quantity">1</span>
+            <button class="plus" onclick="add(1)">+</button>
+        </div>
+        <div class="button-container">
+            <button class="buyNow" onclick="buyNow()">Buy Now</button>
+            <div class="add-to-cart-total">
+                <button class="add-to-cart" onclick="addToCart()"> Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="featured-list" id="featured-list"></div>
+    </div>
+    <a href="index.html" class="back-to-home">see more products</a>
+    <div class="footer">
+        <p>&copy; 2024/25 created by Baffour Brenya Agyenim Boateng. All rights reserved.</p>
+        <script>
+            const products = {
+                1: {
+                    image: "IMG-20250806-WA0070.jpg",
+                    name: "LOVE IS FOREVER",
+                    price: 70.00,
+                    description: "A beautiful representation of eternal love.",
+                    size: "L/XL"
+                },
+                2: {
+                    image: "IMG-20250806-WA0071.jpg",
+                    name: "VIOLET",
+                    price: 70.00,
+                    description: "A stunning portrayal of violet hues.",
+                    size: "M/L/XL"
+                },
+                3: {
+                    image: "IMG-20250806-WA0072.jpg",
+                    name: "WILD FLOWER SPIRIT",
+                    price: 70.00,
+                    description: "A vibrant depiction of wildflowers in bloom.",
+                    size: "M/L"
+                },
+                4: {
+                    image: "IMG-20250806-WA0073.jpg",
+                    name: "13 12",
+                    price: 100.00,
+                    description: "A unique representation of abstract concepts.",
+                    size: "L/XL"
+                },
+                5: {
+                    image: "IMG-20250806-WA0074.jpg",
+                    name: "SCARED DNRS FACE ",
+                    price: 100.00,
+                    description: "A haunting depiction of fear and anxiety.",
+                    size: "M/L/XL"
+                },
+                6: {
+                    image: "IMG-20250806-WA0075.jpg",
+                    name: "DON'T NEED REASON",
+                    price: 100.00,
+                    description: "A powerful statement about self-acceptance.",
+                    size: "L/XL"
+                },
+                7: {
+                    image: "IMG-20250806-WA0076.jpg",
+                    name: "REVOLUTION OF SKELETON",
+                    price: 120.00,
+                    description: "A thought-provoking exploration of skeletal structures.",
+                    size: "M/L/XL"
+                },
+                8: {
+                    image: "IMG-20250806-WA0077.jpg",
+                    name: "GRATITUDE OF A SOUL IN HARMONY",
+                    price: 55.00,
+                    description: "A serene depiction of harmony and gratitude.",
+                    size: "M/L/XL"
+                },
+                9: {
+                    image: "IMG-20250806-WA0078.jpg",
+                    name: "WONDERFULL WORLD",
+                    price: 50.00,
+                    description: "A breathtaking view of the wonders of the world.",
+                    size: "S/M/L/XL"
+                },
+                10: {
+                    image: "IMG-20250806-WA0079.jpg",
+                    name: "AESTHETIC",
+                    price: 125.00,
+                    description: "A stunning representation of aesthetic beauty.",
+                    size: "M/L/XL"
+                }
+            };
+
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+
+            function generateSizeTable(sizesStr) {
+                const sizes = sizesStr.split('/').map(s => s.trim());
+                let html = '<tr>';
+                sizes.forEach(size => {
+                    html += `<td class="size-option" data-size="${size}">${size}</td>`;
+                });
+                html += '</tr>';
+                document.querySelector('.size-table').innerHTML = html;
+            }
+
+            if (products[productId]) {
+                document.getElementById('product-header-name').textContent = products[productId].name;
+                document.getElementById('product-details-image').alt = products[productId].name;
+                document.getElementById('product-details-image').src = products[productId].image;
+                document.getElementById('product-details-name').textContent = products[productId].name;
+                document.getElementById('product-details-description').textContent = products[productId].description;
+                document.getElementById('product-details-price').textContent = `₵${parseInt(products[productId].price).toFixed(2)}`;
+                document.getElementById('product-size-display').textContent = products[productId].size;
+                generateSizeTable(products[productId].size);
+            } else {
+                document.querySelector('.product-container').innerHTML = '<p>Product not found.</p>';
+            }
+
+
+            function setupSizeSelection() {
+                const sizeCells = document.querySelectorAll('.size-option');
+                const sizeDisplay = document.getElementById('product-size-display');
+
+                sizeCells.forEach(cell => {
+                    cell.addEventListener('click', event => {
+                        const isSelected = cell.classList.contains('selected');
+                        sizeCells.forEach(c => c.classList.remove('selected'));
+
+                        if (!isSelected) {
+                            cell.classList.add('selected');
+                            sizeDisplay.textContent = `Selected Size: ${cell.dataset.size}`;
+                        } else {
+                            sizeDisplay.textContent = '';
+                        }
+
+                        event.stopPropagation();
+                    });
+                });
+            }
+
+
+            if (products[productId]) {
+                setTimeout(setupSizeSelection, 0);
+            }
+            function addToCart() {
+                const quantity = document.querySelector('.quantity').textContent;
+                alert(`Added ${quantity} ${document.getElementById('product-size-display').textContent} of ${document.getElementById('product-details-name').textContent} to cart.`);
+            }
+            function buyNow() {
+                const quantity = document.querySelector('.quantity').textContent;
+                alert(`Buying ${quantity} ${document.getElementById('product-size-display').textContent} of ${document.getElementById('product-details-name').textContent}.`);
+            }
+            function add(value) {
+                const quantityElement = document.querySelector('.quantity');
+                let quantity = parseInt(quantityElement.textContent);
+                quantity += value;
+                if (quantity < 1) quantity = 1;
+                quantityElement.textContent = quantity;
+                document.getElementById('product-details-price').textContent = `₵${(products[productId].price * quantity).toFixed(2)}`;
+            }
+            let otherProducts = Object.keys(products).filter(id => id !== productId);
+            otherProducts.sort(() => Math.random() - 0.5);
+            let featuredSelection = otherProducts.slice(0, 6);
+
+            const featuredList = document.getElementById('featured-list');
+            let featuredHTML = '';
+            featuredSelection.forEach(id => {
+                const product = products[id];
+                featuredHTML += `
+        <div class="featured-item">
+              <a href="product.html?id=${id}">
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>₵${(product.price).toFixed(2)}</p>
+            </a>
+        </div>
+        `;
+            });
+            featuredList.innerHTML = featuredHTML;
+        </script>
+</body>
+</html>
