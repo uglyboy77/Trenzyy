@@ -133,7 +133,7 @@ header {
   color: white;
   padding: 20px;
   box-sizing: border-box;
-  z-index: 1000;         
+  z-index: 999;         
   overflow-y: auto;      
 }
 .dropdownmenu.show {
@@ -141,6 +141,7 @@ header {
 }
 
 .menu {
+  z-index:1000;
   height: 3px;
   width: 30px;
   margin: 3px;
