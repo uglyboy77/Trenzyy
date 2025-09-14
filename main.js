@@ -189,6 +189,36 @@ setInterval(() => {
   moveSlide(0);
 }, 10000);
 
+
+const heartButtons = document.querySelectorAll('.heart-button');
+
+heartButtons.forEach((button, index) => {
+  const alertMessage = button.querySelector('.say-alert-message');
+  const heartIcon = button.querySelector('.heart-icon');
+  const storageKey = `heart-${index}`;
+
+  if (localStorage.getItem(storageKey) === 'favorited') {
+    heartIcon.classList.add('selected');
+  }
+
+  button.addEventListener('click', () => {
+    heartIcon.classList.toggle('selected');
+
+    if (heartIcon.classList.contains('selected')) {
+      alertMessage.textContent = 'Favorited!';
+      localStorage.setItem(storageKey, 'favorited');
+    } else {
+      alertMessage.textContent = 'Unfavorited!';
+      localStorage.removeItem(storageKey);
+    }
+
+    alertMessage.classList.add('show');
+    setTimeout(() => {
+      alertMessage.classList.remove('show');
+    }, 1500);
+  });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const signupBtn = document.getElementById('sign-up');
   let hasSignedUp = false;
@@ -203,35 +233,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailFilled = emailInput.value.trim() !== '';
     const phoneFilled = phoneInput.value.trim() !== '';
 
-    // Already signed up
     if (hasSignedUp) {
       e.preventDefault();
       showAlert("You've already signed up.");
       return;
     }
 
-    // No input at all
     if (!emailFilled && !phoneFilled) {
       e.preventDefault();
       showAlert("Please enter either your email or phone number.");
       return;
     }
 
-    // Email filled but not checked
     if (emailFilled && !emailChecked) {
       e.preventDefault();
       showAlert("You entered an email but didn't check the Email option.");
       return;
     }
 
-    // Phone filled but not checked
     if (phoneFilled && !phoneChecked) {
       e.preventDefault();
       showAlert("You entered a phone number but didn't check the SMS option.");
       return;
     }
 
-    // All good
     hasSignedUp = true;
     e.preventDefault();
     showAlert("Thank you for signing up to our news feed.");
@@ -253,7 +278,6 @@ function closeAlert() {
   document.getElementById('custom-alert').classList.add('hidden');
   document.querySelector('.exit-alert').classList.remove('show');
 }
-
 
 const products = Array.from(document.getElementsByClassName('product'));
 products.sort(() => Math.random() - 0.5);
