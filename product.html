@@ -29,7 +29,18 @@
             <h3>Select Size:</h3>
             <div class="size-container">
                 <table class="size-table"></table>
+                <button class="product-heart-button" aria-label="like">
+                    <svg class="product-heart-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
+           2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09 
+           C13.09 3.81 14.76 3 16.5 3 
+           19.58 3 22 5.42 22 8.5 
+           c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                    <div class="say-alert-message">Favorited!</div>
+                </button>
             </div>
+
         </div>
         <div class="plusMinusbtn">
             <button class="minus" onclick="add(-1)">-</button>
@@ -52,6 +63,34 @@
     <div class="footer">
         <p>&copy; 2024/25 created by Baffour Brenya Agyenim Boateng. All rights reserved.</p>
         <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const productHeartButton = document.querySelector('.product-heart-button');
+                const productHeartIcon = document.querySelector('.product-heart-icon');
+                const alertMessage = document.querySelector('.say-alert-message');
+                const storageKey = 'product-heart-favorited';
+
+                // Restore state on page load
+                if (localStorage.getItem(storageKey) === 'favorited') {
+                    productHeartIcon.classList.add('selected');
+                }
+
+                productHeartButton.addEventListener('click', () => {
+                    productHeartIcon.classList.toggle('selected');
+
+                    if (productHeartIcon.classList.contains('selected')) {
+                        alertMessage.textContent = 'Favorited!';
+                        localStorage.setItem(storageKey, 'favorited');
+                    } else {
+                        alertMessage.textContent = 'Unfavorited!';
+                        localStorage.removeItem(storageKey);
+                    }
+
+                    alertMessage.classList.add('show');
+                    setTimeout(() => {
+                        alertMessage.classList.remove('show');
+                    }, 1500);
+                });
+            });
             const products = {
                 1: {
                     image: "IMG-20250806-WA0070.jpg",
@@ -173,7 +212,6 @@
                 });
             }
 
-
             if (products[productId]) {
                 setTimeout(setupSizeSelection, 0);
             }
@@ -214,4 +252,5 @@
             featuredList.innerHTML = featuredHTML;
         </script>
 </body>
+
 </html>
