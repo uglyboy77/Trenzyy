@@ -1,6 +1,6 @@
 <h3>⛓️‍💥OVERVIEW</h3><br>
 This site is a Frontend design(UI) only. It encompasses of HTML,CSS & JS. <br> A well structured responsive website that was built to showcase my in-depth knowledge in website development.
-Trenzy Site took almost 72 hours of development, ensuring every element is well structured and appropriate.<br>
+Trenzy Site took almost a week of development, ensuring every element is well structured and appropriate.<br>
 It also contains my social media platforms where we can interact and share ideas concerning this modern day technology. <br>
 
 Built By: Baffour Brenya Agyenim Boateng <br>
@@ -18,4 +18,5 @@ This site is an DEMONSTRATION site and all the products there are not real inclu
 <h3>⛓️‍💥ACCESSIBILITY</h3><br>
 [https://uglyboy77.github.io/Trenzyy/] <br>
 Click on the above link to view the site. Don't forget to give a feedback!
+
 
