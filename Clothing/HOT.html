@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>HOT TOPS</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <div class="Hot-header">
+        <div class="Hot-header-image"></div>
+        <a href="index.html" class="back-button">Back to Products</a>
+        <h1>HOT TOPS</h1>
+    </div>
+
+    <div class="hot-products">
+        <div class="hotproduct">
+            <a href="product.html?id=7">
+                <div class="hotProductName">
+                    <img src="IMG-20250806-WA0076.jpg" alt="REAVOLUTION OF SKELETON">
+                    <h2 id="hot-product-name">REAVOLUTION OF SKELETON</h2>
+                </div>
+                <p id="hot-product-description">A thought-provoking exploration of skeletal structures.</p>
+                <p id="hot-product-price">₵120.00</p>
+            </a>
+        </div>
+        <div class="hotproduct">
+            <a href="product.html?id=10">
+                <div class="hotProductName">
+                    <img src="IMG-20250806-WA0079.jpg" alt="AESTHETIC">
+                    <h2 id="hot-product-name">AESTHETIC</h2>
+                </div>
+                <p id="hot-product-description">A stunning representation of aesthetic beauty.</p>
+                <p id="hot-product-price">₵125.00</p>
+            </a>
+        </div>
+    </div>
+    <div class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="featured-list" id="featured-list"></div>
+    </div>
+    <script>
+        const products = {
+            1: {
+                image: "IMG-20250806-WA0070.jpg",
+                name: "LOVE IS FOREVER",
+                price: 70.00,
+                description: "A beautiful representation of eternal love.",
+                size: "L/XL"
+            },
+            2: {
+                image: "IMG-20250806-WA0071.jpg",
+                name: "VIOLET",
+                price: 70.00,
+                description: "A stunning portrayal of violet hues.",
+                size: "M/L/XL"
+            },
+            3: {
+                image: "IMG-20250806-WA0072.jpg",
+                name: "WILD FLOWER SPIRIT",
+                price: 70.00,
+                description: "A vibrant depiction of wildflowers in bloom.",
+                size: "M/L"
+            },
+            4: {
+                image: "IMG-20250806-WA0073.jpg",
+                name: "13 12",
+                price: 100.00,
+                description: "A unique representation of abstract concepts.",
+                size: "L/XL"
+            },
+            5: {
+                image: "IMG-20250806-WA0074.jpg",
+                name: "SCARED DNRS FACE ",
+                price: 100.00,
+                description: "A haunting depiction of fear and anxiety.",
+                size: "M/L/XL"
+            },
+            6: {
+                image: "IMG-20250806-WA0075.jpg",
+                name: "DON'T NEED REASON",
+                price: 100.00,
+                description: "A powerful statement about self-acceptance.",
+                size: "L/XL"
+            },
+            7: {
+                image: "IMG-20250806-WA0076.jpg",
+                name: "REVOLUTION OF SKELETON",
+                price: 120.00,
+                description: "A thought-provoking exploration of skeletal structures.",
+                size: "M/L/XL"
+            },
+            8: {
+                image: "IMG-20250806-WA0077.jpg",
+                name: "GRATITUDE OF A SOUL IN HARMONY",
+                price: 55.00,
+                description: "A serene depiction of harmony and gratitude.",
+                size: "M/L/XL"
+            },
+            9: {
+                image: "IMG-20250806-WA0078.jpg",
+                name: "WONDERFULL WORLD",
+                price: 50.00,
+                description: "A breathtaking view of the wonders of the world.",
+                size: "S/M/L/XL"
+            },
+            10: {
+                image: "IMG-20250806-WA0079.jpg",
+                name: "AESTHETIC",
+                price: 125.00,
+                description: "A stunning representation of aesthetic beauty.",
+                size: "M/L/XL"
+            }
+        };
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const featuredList = document.getElementById('featured-list');
+            if (!featuredList) return;
+
+            const otherProducts = Object.keys(products);
+            otherProducts.sort(() => Math.random() - 0.5);
+            const featuredSelection = otherProducts.slice(0, 6);
+
+            let featuredHTML = '';
+            featuredSelection.forEach(id => {
+                const product = products[id];
+                featuredHTML += `
+      <div class="featured-item">
+        <a href="product.html?id=${id}">
+          <img src="${product.image}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p>₵${(product.price).toFixed(2)}</p>
+        </a>
+      </div>
+    `;
+            });
+
+            featuredList.innerHTML = featuredHTML;
+        });
+    </script>
+</body>
+
+</html>
