@@ -134,8 +134,9 @@ header {
   padding: 20px;
   box-sizing: border-box;
   z-index: 1000;         
-  overflow-y: auto;      
+  overflow:hidden;      
 }
+
 .dropdownmenu.show {
   display: block;
 }
@@ -152,12 +153,13 @@ header {
 .menus {
   display: inline-block;
   cursor: pointer;
-  position relative ;
+  position: relative ;
   z-index:1100;
 }
 
 .menus.active .menu:nth-child(1) {
   transform: rotate(45deg) translate(4px, 4px);
+  background-color: rgb(238, 255, 4);
 }
 
 .menus.active .menu:nth-child(2) {
@@ -165,7 +167,8 @@ header {
 }
 
 .menus.active .menu:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(4px, -4px);
+  background-color: rgb(238, 255, 4);
 }
 
 .droptxt {
@@ -1562,4 +1565,5 @@ i {
   nav a {
     font-size: 14px;
   }
+
 }
