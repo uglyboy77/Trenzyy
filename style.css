@@ -524,13 +524,6 @@ nav a:hover {
   gap: 20px;
 }
 
-.product-heart-button {
-  background: transparent;
-  border: none;
-  position: relative;
-  top: 7px;
-}
-
 .say-alert-message {
   position: absolute;
   top: -20px;
@@ -599,8 +592,7 @@ nav a:hover {
   border: none;
 }
 
-.heart-icon,
-.product-heart-icon {
+.heart-icon {
   width: 25px;
   height: 25px;
   fill: white;
@@ -610,15 +602,13 @@ nav a:hover {
   cursor: pointer;
 }
 
-.heart-icon:hover,
-.product-heart-icon:hover {
+.heart-icon:hover {
   fill: red;
   stroke: white;
   transform: scale(1.1);
 }
 
-.heart-icon.selected,
-.product-heart-icon.selected {
+.heart-icon.selected {
   fill: red;
   stroke: white;
 }
