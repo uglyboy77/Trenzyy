@@ -15,8 +15,18 @@ This site is an DEMONSTRATION site and all the products there are not real inclu
 •Dynamic Menu <br>
 •Animated Loading screen etc 
 <br>
+<h3>⛓️‍💥WHAT'S NEXT?</h3><br>
+1. Back-end development-- users can add to cart, favorite an item and sign-in/sign-up as well as receiving news from our newsfeed.<br>
+2. love icon to be added to product page. <br>
+3. Real life transaction of item ie. buying/ordering of items.<br>
+4. Ratings of items to be included.<br>
+5. Discounts and discounts page to be added. <br>
+6. Other products will be included.<br>
+7. Pictures of products will be uploaded on the website.<br>
+8. Trending outfits and recent searches to be added to the search input. <br>
 <h3>⛓️‍💥ACCESSIBILITY</h3><br>
 [https://uglyboy77.github.io/Trenzyy/] <br>
 Click on the above link to view the site. Don't forget to give a feedback!
+
 
 
