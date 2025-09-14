@@ -130,7 +130,7 @@ header {
   display: block;
   background-color: rgb(40, 39, 39);
   overflow-x: hidden;
-
+  width:100%;
 }
 
 .menu {
