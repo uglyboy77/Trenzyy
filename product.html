@@ -41,34 +41,7 @@
     <div class="footer">
         <p>&copy; 2024/25 created by Baffour Brenya Agyenim Boateng. All rights reserved.</p>
         <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const productHeartButton = document.querySelector('.product-heart-button');
-                const productHeartIcon = document.querySelector('.product-heart-icon');
-                const alertMessage = document.querySelector('.say-alert-message');
-                const storageKey = 'product-heart-favorited';
 
-                // Restore state on page load
-                if (localStorage.getItem(storageKey) === 'favorited') {
-                    productHeartIcon.classList.add('selected');
-                }
-
-                productHeartButton.addEventListener('click', () => {
-                    productHeartIcon.classList.toggle('selected');
-
-                    if (productHeartIcon.classList.contains('selected')) {
-                        alertMessage.textContent = 'Favorited!';
-                        localStorage.setItem(storageKey, 'favorited');
-                    } else {
-                        alertMessage.textContent = 'Unfavorited!';
-                        localStorage.removeItem(storageKey);
-                    }
-
-                    alertMessage.classList.add('show');
-                    setTimeout(() => {
-                        alertMessage.classList.remove('show');
-                    }, 1500);
-                });
-            });
             const products = {
                 1: {
                     image: "IMG-20250806-WA0070.jpg",
