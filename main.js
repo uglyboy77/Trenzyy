@@ -1,4 +1,4 @@
-
+/*
 function toggleTheme() {
   const body = document.body;
   const themeIcon = document.getElementById('toggle');
@@ -23,9 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     themeIcon.textContent = '';
   }
-});
+}); */
 
-// configuration for menu
 function toggleMenu() {
   const dropmenu = document.querySelector('.searchbox');
   dropmenu.classList.toggle('show');
@@ -141,7 +140,6 @@ function searchProducts() {
     results.classList.remove('show');
   }
 
-  // Hide results if input is empty
   if (input === '') {
     results.classList.remove('show');
   }
@@ -304,5 +302,6 @@ setTimeout(() => {
     main.style.zIndex = '1000';
   }
 }, 2000);
+
 
 
